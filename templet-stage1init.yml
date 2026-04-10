@@ -1,0 +1,15 @@
+stages:
+  - stage: terraform_init
+    displayName: terraform_init
+    jobs:
+      - job: terraform_init
+        displayName: terraform_init
+        steps:
+          - task: TerraformTask@5
+            inputs:
+              provider: 'azurerm'
+              command: 'init'
+              backendServiceArm: 'connection1'
+              backendAzureRmStorageAccountName: 'muskan123stoarge'
+              backendAzureRmContainerName: 'practice'
+              backendAzureRmKey: 'qa.tf.state'
